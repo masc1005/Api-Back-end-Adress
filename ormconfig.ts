@@ -6,9 +6,9 @@ export default {
   password: process.env.PASSWORD_DB,
   database: process.env.NAME_DB,
   migrations: ['./src/database/migrations/**.ts'],
-  entities: ['./src/entities/**.ts'],
+  entities: ['./src/app/models/**.ts'],
   cli:{
-    entitiesDir: './src/entities',
+    entitiesDir: './src/app/models',
     migrationsDir: './src/database/migrations'
   }, 
 }
