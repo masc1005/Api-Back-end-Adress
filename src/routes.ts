@@ -19,5 +19,7 @@ const routes = Router()
 
 routes.get('/user', userController.allUsers)
 routes.post('/user', userController.Register)
+routes.put('/user', userController.Update)
+routes.delete('/user', userController.Delete)
 
 export default routes

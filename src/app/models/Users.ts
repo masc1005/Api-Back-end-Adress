@@ -30,9 +30,11 @@ class User {
   @Column()
   peso: Number
 
-  @Column('enum', { 
+  @Column({ 
+    type: "enum",
     name: 'etnia', 
-    enum: Etnia
+    enum: Etnia,
+    default: Etnia.NA
   })
   etnia: Etnia;
 }
