@@ -22,11 +22,20 @@ class UserController {
   async Register(req: Request, res: Response) {
 
     try {
+
       const userRepository = getRepository(UserModel)
 
       const { name, phone, email, idade, peso, etnia } = req.body
 
-      const userExist = await userRepository.findOne({ where : { email } })      
+      function validateEmail(email: string) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+      }
+          
+      (validateEmail(email))
+
+      if((validateEmail(email))){
+        const userExist = await userRepository.findOne({ where : { email } })      
       
       if (userExist){
         res.sendStatus(409)
@@ -36,6 +45,9 @@ class UserController {
       await userRepository.save(saveUser)
 
       return res.json(saveUser)
+      }
+
+      return res.json('invalid mail')
 
     } catch (error) {
       console.log(error)
