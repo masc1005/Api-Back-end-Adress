@@ -4,6 +4,10 @@ import UserModel from '../models/Users'
 
 class UserController {
 
+  async Index(req: Request, res: Response){
+    this.allUsers()
+  }
+
   async allUsers(req: Request, res: Response){
 
     try {
@@ -28,8 +32,8 @@ class UserController {
       const { name, phone, email, idade, peso, etnia } = req.body
 
       function validateEmail(email: string) {
-        var re = /\S+@\S+\.\S+/;
-        return re.test(email);
+        var validateEmail = /\S+@\S+\.\S+/;
+        return validateEmail.test(email);
       }
           
       (validateEmail(email))
@@ -37,14 +41,14 @@ class UserController {
       if((validateEmail(email))){
         const userExist = await userRepository.findOne({ where : { email } })      
       
-      if (userExist){
-        res.sendStatus(409)
-      }
+        if (userExist){
+          res.sendStatus(409)
+        }
 
-      const saveUser = userRepository.create({ name, phone, email, idade, peso, etnia })
-      await userRepository.save(saveUser)
+        const saveUser = userRepository.create({ name, phone, email, idade, peso, etnia })
+        await userRepository.save(saveUser)
 
-      return res.json(saveUser)
+        return res.json(saveUser)
       }
 
       return res.json('invalid mail')

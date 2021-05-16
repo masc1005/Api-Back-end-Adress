@@ -27,12 +27,6 @@ class UserController {
 
       const { adress, number, complement, cep, city, state } = req.body
 
-      const adressExist = await adressRepository.findOne({ where : { number } })
-      
-      if(adressExist){
-        return res.sendStatus(409)
-      }
-
       const saveAdress = adressRepository.create({adress, number, complement, cep, city, state})
       await adressRepository.save(saveAdress)
 
