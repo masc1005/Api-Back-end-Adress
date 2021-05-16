@@ -4,10 +4,6 @@ import UserModel from '../models/Users'
 
 class UserController {
 
-  async Index(req: Request, res: Response){
-    this.allUsers()
-  }
-
   async allUsers(req: Request, res: Response){
 
     try {
