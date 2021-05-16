@@ -4,12 +4,12 @@ import AdressModel from '../models/Adress'
 
 class UserController {
 
-  async allUsers(req: Request, res: Response){
+  async allAdress(req: Request, res: Response){
 
     try {
 
-      const userRepository = getRepository(AdressModel)
-      const showAdress = await userRepository.find()
+      const adressRepository = getRepository(AdressModel)
+      const showAdress = await adressRepository.find()
 
       return res.json({ showAdress }).status(200)
       
@@ -27,16 +27,16 @@ class UserController {
 
       const { adress, number, complement, cep, city, state } = req.body
 
-      const adressExist = await adressRepository.findOne({ where : { cep, number } })
+      const adressExist = await adressRepository.findOne({ where : { number } })
       
       if(adressExist){
         return res.sendStatus(409)
       }
 
-      const saveAdress = await adressRepository.create({adress, number, complement, cep, city, state})
+      const saveAdress = adressRepository.create({adress, number, complement, cep, city, state})
       await adressRepository.save(saveAdress)
 
-      return res.json(saveAdress)
+      return res.json(saveAdress).status
 
     } catch (error) {
       console.log(error)
