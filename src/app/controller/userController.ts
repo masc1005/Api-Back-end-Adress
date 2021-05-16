@@ -69,10 +69,8 @@ class UserController {
         peso,
         etnia
       }
-
-      const updateUser = await userRepository.update({ email }, data)
-
       res.json("updated")
+      await userRepository.update({ email }, data).then(() => { res.json("updated") })
 
     } catch (error) {
       console.log(error)
