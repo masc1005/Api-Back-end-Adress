@@ -1,15 +1,13 @@
-import { Request, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 import { getRepository } from 'typeorm'
 import jwt from 'jsonwebtoken'
-
-import showAdress from './adressController'
 
 import UserModel from '../models/Users'
 
 class AuthController {
 
-  async Index(req: Request, res: Response){
-      showAdress.allAdress
+  async Index(req: Request, res: Response, next: NextFunction){
+      return console.log("Passed"), next()
   }
 
   async Authenticate(req: Request, res: Response){

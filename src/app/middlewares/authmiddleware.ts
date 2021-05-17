@@ -21,11 +21,10 @@ export default function authMiddleware(req: Request, res: Response, next: NextFu
 
     const data = jwt.verify(token, process.env.JWT_SECRET)
 
-    const { id } = data as tokenData
-
-    req.userId = id
+    const authId = data as tokenData
 
     return next()
+
   } catch (error) {
     return console.log(error)
   }
