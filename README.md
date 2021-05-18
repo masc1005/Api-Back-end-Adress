@@ -13,7 +13,7 @@ Para iniciar o projeto:
 
 **Sobre o código**
 
-*O código é constituido de 3 controlllers, que são responsaveis pelo CRUD de usuários e de endereços, além do controller que é responsavel por gerar o token para acessar a rota protegida.* *Também composto por um middleware *
+*O código é constituido de 3 controlllers, que são responsaveis pelo CRUD de usuários e de endereços, além do controller que é responsavel por gerar o token para acessar a rota protegida.* *Também composto por um middleware que faz a autenticação do Bearer.*
 
 **Para que o código fosse desenvolvido eu fiz utilização da tecnologias:**
 
