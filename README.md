@@ -13,7 +13,9 @@ Para iniciar o projeto:
 
 **Sobre o código**
 
-Para que o código fosse desenvolvido eu fiz utilização da tecnologias:
+*O código é constituido de 3 controlllers, que são responsaveis pelo CRUD de usuários e de endereços, além do controller que é responsavel por gerar o token para acessar a rota protegida.* *Também composto por um middleware *
+
+**Para que o código fosse desenvolvido eu fiz utilização da tecnologias:**
 
 **Linguagem de programação:**
 >TypeScript

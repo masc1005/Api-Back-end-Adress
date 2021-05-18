@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "dev": "ts-node-dev src/index.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+    "dev": "ts-node-dev --respawn --transpile-only --no-notify --cls src/index.ts",
+    "typeorm": "ts-node-dev --respawn --transpile-only --no-notify --cls ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "@types/dotenv": "^8.2.0",

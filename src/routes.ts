@@ -28,6 +28,8 @@ routes.put('/user', userController.Update)
 routes.delete('/user', userController.Delete)
 
 // adress routes
+
+// routes.get('/adress', adressController.allAdress)
 routes.post('/adress', adressController.Register)
 routes.put('/adress', adressController.Update)
 routes.delete('/adress', adressController.Delete)

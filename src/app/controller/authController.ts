@@ -7,7 +7,18 @@ import UserModel from '../models/Users'
 class AuthController {
 
   async Index(req: Request, res: Response, next: NextFunction){
-      return console.log("Passed"), next()
+    
+    const userRespository = getRepository(UserModel)
+
+    const id = req.authId
+
+    const idExists = userRespository.findOne({where: { id }})
+
+    if(!idExists){
+      res.sendStatus(409)
+    }
+
+    return console.log('passed'), next()
   }
 
   async Authenticate(req: Request, res: Response){
